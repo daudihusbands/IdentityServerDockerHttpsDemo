@@ -2,7 +2,7 @@
 # !/usr/bin/env bash
 
 # exit when any command fails
-set -e
+# set -e
 
 # trust dev root CA
 openssl x509 -inform DER -in /https-root/aspnetapp-root-cert.cer -out /https-root/aspnetapp-root-cert.crt
