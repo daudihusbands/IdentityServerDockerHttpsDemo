@@ -14,7 +14,7 @@ namespace Client
             var disco = await client.GetDiscoveryDocumentAsync(
                 new DiscoveryDocumentRequest
                 {
-                    Address = "https://localhost:5001",
+                    Address = "https://host.docker.internal:5001",
                     Policy =
                     {
                         ValidateIssuerName = false
