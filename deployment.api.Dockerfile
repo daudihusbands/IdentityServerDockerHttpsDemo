@@ -5,6 +5,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:3.1 AS base
 WORKDIR /
 RUN mkdir -p /https-root
 COPY ["certs/aspnetapp-root-cert.cer", "/https-root/aspnetapp-root-cert.cer"]
+COPY ["src/Api/certs/aspnetapp-web-api.pfx", "/https/aspnetapp-web-api.pfx"]
 # COPY ["src/Api/docker-entrypoint.sh", "/docker-entrypoint.sh"]
 # RUN chmod +x docker-entrypoint.sh
 # RUN sh ./docker-entrypoint.sh
@@ -18,8 +19,9 @@ RUN dpkg-reconfigure ca-certificates
 RUN update-ca-certificates
 
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+# EXPOSE 80
+# EXPOSE 443
+# EXPOSE 6001
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
@@ -34,5 +36,8 @@ RUN dotnet publish "Api.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+EXPOSE 6001
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Api.dll"]

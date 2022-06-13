@@ -4,7 +4,7 @@ services:
   identity-server:
     build: ./src/IdentityServer
     ports:
-      - '5001:5001'
+      - '5001:443'
     volumes:
       - ./src/IdentityServer:/root/IdentityServer:cached
       - ./src/IdentityServer/certs:/https/
@@ -12,7 +12,7 @@ services:
         source: ./certs/aspnetapp-root-cert.cer
         target: /https-root/aspnetapp-root-cert.cer
     environment:
-      - ASPNETCORE_URLS="https://+;"
+      - ASPNETCORE_URLS="https://+:443;"
       - ASPNETCORE_HTTPS_PORT=5001
       - ASPNETCORE_Kestrel__Certificates__Default__Password=password
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp-identity-server.pfx
@@ -24,15 +24,16 @@ services:
       context: .
       dockerfile: deployment.api.Dockerfile
     ports:
-        - "6001:6001"
-    # volumes:
-    #   - ./src/Api:/root/Api:cached
-    #   - ./src/Api/certs:/https/
+        - "6000:80"
+        - "6001:443"
+    volumes:
+      - ./src/Api:/root/Api:cached
+      - ./src/Api/certs:/https/
     #   - type: bind
     #     source: ./certs/aspnetapp-root-cert.cer
     #     target: /https-root/aspnetapp-root-cert.cer
     environment:
-      - ASPNETCORE_URLS="https://+;"
+      - ASPNETCORE_URLS=https://+:443;http://+:80
       - ASPNETCORE_HTTPS_PORT=6001
       - ASPNETCORE_Kestrel__Certificates__Default__Password=password
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp-web-api.pfx
