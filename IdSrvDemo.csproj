@@ -1,0 +1,231 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{5933223E-BFB1-4F33-AB60-5759B01EDB7D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>ConsoleApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>IdSrvDemo</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include=".git\config" />
+    <None Include=".git\description" />
+    <None Include=".git\FETCH_HEAD" />
+    <None Include=".git\HEAD" />
+    <None Include=".git\hooks\applypatch-msg.sample" />
+    <None Include=".git\hooks\commit-msg.sample" />
+    <None Include=".git\hooks\fsmonitor-watchman.sample" />
+    <None Include=".git\hooks\post-update.sample" />
+    <None Include=".git\hooks\pre-applypatch.sample" />
+    <None Include=".git\hooks\pre-commit.sample" />
+    <None Include=".git\hooks\pre-merge-commit.sample" />
+    <None Include=".git\hooks\pre-push.sample" />
+    <None Include=".git\hooks\pre-rebase.sample" />
+    <None Include=".git\hooks\pre-receive.sample" />
+    <None Include=".git\hooks\prepare-commit-msg.sample" />
+    <None Include=".git\hooks\push-to-checkout.sample" />
+    <None Include=".git\hooks\update.sample" />
+    <None Include=".git\index" />
+    <None Include=".git\info\exclude" />
+    <None Include=".git\logs\HEAD" />
+    <None Include=".git\logs\refs\heads\master" />
+    <None Include=".git\logs\refs\remotes\origin\HEAD" />
+    <None Include=".git\objects\pack\pack-5eb06b207b53bd27176fe25b76fd637cc12ca650.idx" />
+    <None Include=".git\objects\pack\pack-5eb06b207b53bd27176fe25b76fd637cc12ca650.pack" />
+    <None Include=".git\packed-refs" />
+    <None Include=".git\refs\heads\master" />
+    <None Include=".git\refs\remotes\origin\HEAD" />
+    <None Include=".vscode\launch.json" />
+    <None Include=".vscode\tasks.json" />
+    <None Include=".vs\IdentityServerDockerHttpsDemo\FileContentIndex\1834428a-0c19-4330-a299-3aad7bc5f85c.vsidx" />
+    <None Include=".vs\IdentityServerDockerHttpsDemo\FileContentIndex\read.lock" />
+    <None Include=".vs\IdentityServerDockerHttpsDemo\v17\.suo" />
+    <None Include=".vs\ProjectSettings.json" />
+    <None Include=".vs\slnx.sqlite" />
+    <None Include=".vs\VSWorkspaceState.json" />
+    <None Include="build copy.ps1" />
+    <None Include="build.ps1" />
+    <None Include="certs\aspnetapp-root-cert.cer" />
+    <None Include="certs\aspnetapp-root-cert.pfx" />
+    <None Include="docker-compose.yml" />
+    <None Include="generate_self_signed_cert.ps1" />
+    <None Include="README.md" />
+    <None Include="src\Api\Api.csproj" />
+    <None Include="src\Api\appsettings.Development.json" />
+    <None Include="src\Api\appsettings.json" />
+    <None Include="src\Api\build.ps1" />
+    <None Include="src\Api\certs\aspnetapp-web-api.pfx" />
+    <None Include="src\Api\docker-entrypoint.sh1" />
+    <None Include="src\Api\Dockerfile" />
+    <None Include="src\Api\Dockerfile copy" />
+    <None Include="src\Api\Dockerfile copy 2" />
+    <None Include="src\Api\obj\Debug\netcoreapp3.1\Api.AssemblyInfoInputs.cache" />
+    <None Include="src\Api\obj\Debug\netcoreapp3.1\Api.csproj.AssemblyReference.cache" />
+    <None Include="src\Api\obj\Debug\netcoreapp3.1\Api.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="src\Api\obj\Debug\netcoreapp3.1\project.razor.json" />
+    <None Include="src\Api\obj\Release\netcoreapp3.1\Api.AssemblyInfoInputs.cache" />
+    <None Include="src\Api\obj\Release\netcoreapp3.1\Api.csproj.AssemblyReference.cache" />
+    <None Include="src\Api\obj\Release\netcoreapp3.1\Api.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="src\Api\Properties\launchSettings.json" />
+    <None Include="src\Client\bin\Debug\netcoreapp3.1\Client.deps.json" />
+    <None Include="src\Client\bin\Debug\netcoreapp3.1\Client.runtimeconfig.dev.json" />
+    <None Include="src\Client\bin\Debug\netcoreapp3.1\Client.runtimeconfig.json" />
+    <None Include="src\Client\Client.csproj" />
+    <None Include="src\Client\obj\Client.csproj.nuget.dgspec.json" />
+    <None Include="src\Client\obj\Client.csproj.nuget.g.props" />
+    <None Include="src\Client\obj\Client.csproj.nuget.g.targets" />
+    <None Include="src\Client\obj\Debug\netcoreapp3.1\Client.AssemblyInfoInputs.cache" />
+    <None Include="src\Client\obj\Debug\netcoreapp3.1\Client.assets.cache" />
+    <None Include="src\Client\obj\Debug\netcoreapp3.1\Client.csproj.AssemblyReference.cache" />
+    <None Include="src\Client\obj\Debug\netcoreapp3.1\Client.csproj.CopyComplete" />
+    <None Include="src\Client\obj\Debug\netcoreapp3.1\Client.csproj.CoreCompileInputs.cache" />
+    <None Include="src\Client\obj\Debug\netcoreapp3.1\Client.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="src\Client\obj\Debug\netcoreapp3.1\Client.genruntimeconfig.cache" />
+    <None Include="src\Client\obj\project.assets.json" />
+    <None Include="src\Client\obj\project.nuget.cache" />
+    <None Include="src\Client\obj\Release\netcoreapp3.1\Client.AssemblyInfoInputs.cache" />
+    <None Include="src\Client\obj\Release\netcoreapp3.1\Client.csproj.AssemblyReference.cache" />
+    <None Include="src\Client\obj\Release\netcoreapp3.1\Client.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="src\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer" />
+    <None Include="src\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.deps.json" />
+    <None Include="src\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.runtimeconfig.dev.json" />
+    <None Include="src\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.runtimeconfig.json" />
+    <None Include="src\IdentityServer\bin\Debug\netcoreapp3.1\Properties\launchSettings.json" />
+    <None Include="src\IdentityServer\certs\aspnetapp-identity-server.pfx" />
+    <None Include="src\IdentityServer\Dockerfile" />
+    <None Include="src\IdentityServer\IdentityServer.csproj" />
+    <None Include="src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer" />
+    <None Include="src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.AssemblyInfoInputs.cache" />
+    <None Include="src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.assets.cache" />
+    <None Include="src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.csproj.AssemblyReference.cache" />
+    <None Include="src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.csproj.CopyComplete" />
+    <None Include="src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.csproj.CoreCompileInputs.cache" />
+    <None Include="src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.csprojAssemblyReference.cache" />
+    <None Include="src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.genruntimeconfig.cache" />
+    <None Include="src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.MvcApplicationPartsAssemblyInfo.cache" />
+    <None Include="src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.RazorTargetAssemblyInfo.cache" />
+    <None Include="src\IdentityServer\obj\Debug\netcoreapp3.1\project.razor.json" />
+    <None Include="src\IdentityServer\obj\Debug\netcoreapp3.1\staticwebassets\IdentityServer.StaticWebAssets.Manifest.cache" />
+    <None Include="src\IdentityServer\obj\IdentityServer.csproj.nuget.dgspec.json" />
+    <None Include="src\IdentityServer\obj\IdentityServer.csproj.nuget.g.props" />
+    <None Include="src\IdentityServer\obj\IdentityServer.csproj.nuget.g.targets" />
+    <None Include="src\IdentityServer\obj\project.assets.json" />
+    <None Include="src\IdentityServer\obj\project.nuget.cache" />
+    <None Include="src\IdentityServer\obj\Release\netcoreapp3.1\IdentityServer.AssemblyInfoInputs.cache" />
+    <None Include="src\IdentityServer\obj\Release\netcoreapp3.1\IdentityServer.csproj.AssemblyReference.cache" />
+    <None Include="src\IdentityServer\obj\Release\netcoreapp3.1\IdentityServer.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="src\IdentityServer\Properties\launchSettings.json" />
+    <None Include="src\IdentityServer\tempkey.jwk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".git\ms-persist.xml" />
+    <Content Include="src\Client\bin\Debug\netcoreapp3.1\Client.dll" />
+    <Content Include="src\Client\bin\Debug\netcoreapp3.1\Client.exe" />
+    <Content Include="src\Client\bin\Debug\netcoreapp3.1\Client.pdb" />
+    <Content Include="src\Client\bin\Debug\netcoreapp3.1\IdentityModel.dll" />
+    <Content Include="src\Client\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll" />
+    <Content Include="src\Client\obj\Debug\netcoreapp3.1\apphost.exe" />
+    <Content Include="src\Client\obj\Debug\netcoreapp3.1\Client.csproj.FileListAbsolute.txt" />
+    <Content Include="src\Client\obj\Debug\netcoreapp3.1\Client.dll" />
+    <Content Include="src\Client\obj\Debug\netcoreapp3.1\Client.pdb" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\IdentityModel.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.pdb" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer4.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer4.Storage.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\Serilog.AspNetCore.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\Serilog.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\Serilog.Extensions.Hosting.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\Serilog.Extensions.Logging.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\Serilog.Formatting.Compact.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\Serilog.Settings.Configuration.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\Serilog.Sinks.Console.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\Serilog.Sinks.Debug.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\Serilog.Sinks.File.dll" />
+    <Content Include="src\IdentityServer\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll" />
+    <Content Include="src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.csproj.FileListAbsolute.txt" />
+    <Content Include="src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.dll" />
+    <Content Include="src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.pdb" />
+    <Content Include="src\IdentityServer\obj\Debug\netcoreapp3.1\staticwebassets\IdentityServer.StaticWebAssets.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\Api\Controllers\IdentityController.cs" />
+    <Compile Include="src\Api\obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" />
+    <Compile Include="src\Api\obj\Debug\netcoreapp3.1\Api.AssemblyInfo.cs" />
+    <Compile Include="src\Api\obj\Release\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" />
+    <Compile Include="src\Api\obj\Release\netcoreapp3.1\Api.AssemblyInfo.cs" />
+    <Compile Include="src\Api\Program.cs" />
+    <Compile Include="src\Api\Startup.cs" />
+    <Compile Include="src\Client\obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" />
+    <Compile Include="src\Client\obj\Debug\netcoreapp3.1\Client.AssemblyInfo.cs" />
+    <Compile Include="src\Client\obj\Release\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" />
+    <Compile Include="src\Client\obj\Release\netcoreapp3.1\Client.AssemblyInfo.cs" />
+    <Compile Include="src\Client\Program.cs" />
+    <Compile Include="src\IdentityServer\Config.cs" />
+    <Compile Include="src\IdentityServer\obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" />
+    <Compile Include="src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.AssemblyInfo.cs" />
+    <Compile Include="src\IdentityServer\obj\Release\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" />
+    <Compile Include="src\IdentityServer\obj\Release\netcoreapp3.1\IdentityServer.AssemblyInfo.cs" />
+    <Compile Include="src\IdentityServer\Program.cs" />
+    <Compile Include="src\IdentityServer\Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git\objects\info\" />
+    <Folder Include=".git\refs\tags\" />
+    <Folder Include=".vs\IdentityServerDockerHttpsDemo\FileContentIndex\merges\" />
+    <Folder Include=".vs\IdSrvDemo\v17\" />
+    <Folder Include="src\Api\bin\Debug\netcoreapp3.1\" />
+    <Folder Include="src\Api\bin\Release\netcoreapp3.1\" />
+    <Folder Include="src\Client\bin\Release\netcoreapp3.1\" />
+    <Folder Include="src\IdentityServer\bin\Release\netcoreapp3.1\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>

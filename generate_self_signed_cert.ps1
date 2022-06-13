@@ -2,7 +2,9 @@
 # Generate self-signed certificate to be used by IdentityServer.
 # When using localhost - API cannot see the IdentityServer from within the docker-compose'd network.
 # You have to run this script as Administrator (open Powershell by right click -> Run as Administrator).
-
+$computer = $env:computername
+$rootStoreName="Root"
+Write-Output "Computer name: $computer"
 $ErrorActionPreference = "Stop"
 
 $rootCN = "IdentityServerDockerDemoRootCert"
@@ -25,7 +27,7 @@ if ($alreadyExistingCertsIdentityServer.Count -eq 1) {
     $identityServerCert = [Microsoft.CertificateServices.Commands.Certificate] $alreadyExistingCertsIdentityServer[0]
 } else {
     # Create a SAN cert for both identity-server and localhost.
-    $identityServerCert = New-SelfSignedCertificate -DnsName $identityServerCNs -Signer $testRootCA -CertStoreLocation Cert:\LocalMachine\My
+    $identityServerCert = New-SelfSignedCertificate -DnsName $identityServerCNs -Signer $testRootCA   Cert:\LocalMachine\My
 }
 
 if ($alreadyExistingCertsApi.Count -eq 1) {
@@ -56,14 +58,17 @@ $rootCertPathCer = "certs/aspnetapp-root-cert.cer"
 Export-Certificate -Cert $testRootCA -FilePath $rootCertPathCer -Type CERT | Out-Null
 
 # Trust it on your host machine.
-$store = New-Object System.Security.Cryptography.X509Certificates.X509Store "Root","LocalMachine"
+$store = New-Object System.Security.Cryptography.X509Certificates.X509Store("\\$computer\$rootStoreName","LocalMachine")
 $store.Open("ReadWrite")
 
 $rootCertAlreadyTrusted = ($store.Certificates | Where-Object {$_.Subject -eq "CN=$rootCN"} | Measure-Object).Count -eq 1
 
 if ($rootCertAlreadyTrusted -eq $false) {
     Write-Output "Adding the root CA certificate to the trust store."
-    $store.Add($testRootCA)
+    # $store.Add($testRootCA)
+
+    # $tore.Add not working. Exception calling "Add" with "1" argument(s): "pCertContext is an invalid handle."
+    Import-PfxCertificate -FilePath "$rootCertPathPfx/aspnetapp-root-cert.pfx" "cert:\localMachine\my" -Password $password -Exportable
 }
 
 $store.Close()

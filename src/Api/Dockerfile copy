@@ -1,0 +1,36 @@
+# FROM mcr.microsoft.com/dotnet/core/sdk:3.1 as base
+
+# # WORKDIR /root/Api
+# # COPY ./docker-entrypoint.sh ./docker-entrypoint.sh
+# EXPOSE 6001
+
+# FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS runtime
+# WORKDIR /root/Api
+# COPY ./docker-entrypoint.sh ./docker-entrypoint.sh
+# SHELL ["/bin/bash", "-c"]
+# RUN echo "$(openssl version)"
+
+# ENTRYPOINT ["/root/docker-entrypoint.sh"]
+# CMD ping localhost
+
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1
+EXPOSE 6001
+WORKDIR /root/Api
+
+# ENTRYPOINT ["./docker-entrypoint.sh"]
+# COPY ["src/Api/certs/aspnetapp-web-api.pfx", "/https/aspnetapp-web-api.pfx"]
+COPY certs/aspnetapp-root-cert.cer /https-root/aspnetapp-root-cert.cer
+SHELL ["/bin/bash", "-c"]
+# RUN  cp src/Api/certs/aspnetapp-web-api.pfx /https/aspnetapp-web-api.pfx
+
+RUN apt-get update
+RUN apt-get install -y ca-certificates
+RUN openssl x509 -inform DER -in /https-root/aspnetapp-root-cert.cer -out /https-root/aspnetapp-root-cert.crt
+RUN mkdir /usr/local/share/ca-certificates/extra
+RUN cp /https-root/aspnetapp-root-cert.crt /usr/local/share/ca-certificates/extra/aspnetapp-root-cert.crt
+RUN dpkg-reconfigure ca-certificates
+RUN update-ca-certificates
+
+RUN pwd
+
+# RUN dotnet watch run --project Api.csproj
