@@ -4,5 +4,5 @@ src/Api/certs
 
 **/bin
 **/obj
-
+.vs
 src/IdentityServer/tempkey.jwk
